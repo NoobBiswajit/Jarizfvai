@@ -43,7 +43,7 @@
     .quiz-back {
       position: relative;
       background-size: cover;
-      /* background-position: center; */
+      background-position: center;
       background-repeat: no-repeat;
     }
 
@@ -121,50 +121,45 @@
 
 
     /* ==========accordion start========== */
+    .accordion-wrapper {
+      position: relative;
+      margin-bottom: .5rem;
+    }
 
-
-
-    .collapsibles-wrapper .collapsible-trigger-btn {
-      background: none;
-      width: 100%;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      padding: 6px 0;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #979797;
+    .acc-head {
       position: relative;
     }
 
-    .collapsibles-wrapper .collapsible-trigger-btn::after {
-      content: "+";
-      font-size: 20px;
-      font-weight: 400;
+    .acc-head::after {
+      content: '\002B';
       position: absolute;
-      right: -10px;
+      right: 16px;
+      color: rgb(0, 0, 0);
+      transform: rotate(0deg);
+      transition: .4s;
       top: 50%;
       transform: translateY(-50%);
-    }
-
-    .collapsibles-wrapper.collapsible-tab__open .collapsible-trigger-btn::after {
-      content: "+";
-      transform: rotate(45deg);
       font-size: 20px;
 
     }
 
-    .collapsibles-wrapper .collapsible-content {
-      visibility: hidden;
-      opacity: 0;
-      transition: all 0.2s linear;
+    .acc-head.active::after {
+      content: '\00D7';
+      position: absolute;
+      right: 16px;
+      color: rgb(0, 0, 0);
+      transform: rotate(90deg);
+      transition: .4s;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
     }
 
-    .collapsibles-wrapper.collapsible-tab__open .collapsible-content {
-      visibility: visible;
-      opacity: 1;
-    }
+    .acc-body {
+      padding: 1rem;
+      display: none;
 
+    }
 
     /* ==========accordion end========== */
 
@@ -202,7 +197,6 @@
 
 
     /* ============tailwind=========== */
-
     *,
     ::before,
     ::after {
@@ -796,14 +790,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       }
     }
 
-    .visible {
-      visibility: visible;
-    }
-
-    .collapse {
-      visibility: collapse;
-    }
-
     .absolute {
       position: absolute;
     }
@@ -816,28 +802,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       left: 50%;
     }
 
-    .order-first {
-      order: -9999;
-    }
-
     .order-last {
       order: 9999;
     }
 
-    .col-span-1 {
-      grid-column: span 1 / span 1;
-    }
-
     .col-span-12 {
       grid-column: span 12 / span 12;
-    }
-
-    .col-span-4 {
-      grid-column: span 4 / span 4;
-    }
-
-    .col-span-5 {
-      grid-column: span 5 / span 5;
     }
 
     .col-span-6 {
@@ -846,10 +816,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
     .col-span-7 {
       grid-column: span 7 / span 7;
-    }
-
-    .col-span-8 {
-      grid-column: span 8 / span 8;
     }
 
     .mx-auto {
@@ -862,23 +828,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       margin-bottom: 0.25rem;
     }
 
-    .my-10 {
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .my-16 {
-      margin-top: 4rem;
-      margin-bottom: 4rem;
-    }
-
     .my-4 {
       margin-top: 1rem;
       margin-bottom: 1rem;
-    }
-
-    .mb-0 {
-      margin-bottom: 0px;
     }
 
     .mb-2 {
@@ -893,28 +845,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       margin-bottom: 1rem;
     }
 
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
-
-    .mb-8 {
-      margin-bottom: 2rem;
-    }
-
     .mr-2 {
       margin-right: 0.5rem;
     }
 
-    .mt-0 {
-      margin-top: 0px;
-    }
-
     .mt-10 {
       margin-top: 2.5rem;
-    }
-
-    .mt-16 {
-      margin-top: 4rem;
     }
 
     .mt-2 {
@@ -961,52 +897,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       display: flex;
     }
 
-    .table {
-      display: table;
-    }
-
     .grid {
       display: grid;
-    }
-
-    .contents {
-      display: contents;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .h-10 {
-      height: 2.5rem;
-    }
-
-    .h-16 {
-      height: 4rem;
-    }
-
-    .h-20 {
-      height: 5rem;
-    }
-
-    .h-\[100px\] {
-      height: 100px;
-    }
-
-    .h-\[10px\] {
-      height: 10px;
     }
 
     .h-\[15vh\] {
       height: 15vh;
     }
 
-    .h-\[200px\] {
-      height: 200px;
-    }
-
-    .h-\[60vh\] {
-      height: 60vh;
+    .h-\[82vh\] {
+      height: 82vh;
     }
 
     .h-fit {
@@ -1018,64 +918,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       height: 100%;
     }
 
-    .w-10 {
-      width: 2.5rem;
-    }
-
-    .w-11 {
-      width: 2.75rem;
-    }
-
-    .w-11\/12 {
-      width: 91.666667%;
-    }
-
-    .w-16 {
-      width: 4rem;
-    }
-
-    .w-20 {
-      width: 5rem;
-    }
-
-    .w-3 {
-      width: 0.75rem;
-    }
-
     .w-full {
       width: 100%;
-    }
-
-    .border-collapse {
-      border-collapse: collapse;
     }
 
     .transform {
       transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     }
 
-    .resize {
-      resize: both;
-    }
-
     .grid-cols-12 {
       grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-
-    .grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .flex-col {
-      flex-direction: column;
     }
 
     .content-center {
@@ -1094,32 +946,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       justify-content: center;
     }
 
-    .gap-1 {
-      gap: 0.25rem;
-    }
-
     .gap-10 {
       gap: 2.5rem;
-    }
-
-    .gap-16 {
-      gap: 4rem;
     }
 
     .gap-2 {
       gap: 0.5rem;
     }
 
-    .gap-20 {
-      gap: 5rem;
-    }
-
     .gap-3 {
       gap: 0.75rem;
-    }
-
-    .gap-4 {
-      gap: 1rem;
     }
 
     .gap-5 {
@@ -1130,16 +966,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       border-radius: 9999px;
     }
 
-    .rounded-lg {
-      border-radius: 0.5rem;
+    .border-b {
+      border-bottom-width: 1px;
     }
 
-    .border {
-      border-width: 1px;
-    }
-
-    .border-transparent {
-      border-color: transparent;
+    .border-black {
+      --tw-border-opacity: 1;
+      border-color: rgb(0 0 0 / var(--tw-border-opacity));
     }
 
     .bg-\[\#F3F3F3\] {
@@ -1152,62 +985,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       background-color: rgb(247 180 192 / var(--tw-bg-opacity));
     }
 
-    .bg-\[\#FEF7F7\] {
-      --tw-bg-opacity: 1;
-      background-color: rgb(254 247 247 / var(--tw-bg-opacity));
-    }
-
     .bg-\[\#FFF7F8\] {
       --tw-bg-opacity: 1;
       background-color: rgb(255 247 248 / var(--tw-bg-opacity));
     }
 
-    .bg-\[\#f8e8eaec\] {
-      background-color: #f8e8eaec;
-    }
-
-    .bg-\[\#f8e8eaf8\] {
-      background-color: #f8e8eaf8;
-    }
-
-    .bg-white {
-      --tw-bg-opacity: 1;
-      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-    }
-
-    .px-0 {
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-
-    .px-10 {
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-    }
-
-    .px-16 {
-      padding-left: 4rem;
-      padding-right: 4rem;
-    }
-
-    .px-2 {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-
-    .px-20 {
-      padding-left: 5rem;
-      padding-right: 5rem;
+    .p-3 {
+      padding: 0.75rem;
     }
 
     .px-3 {
       padding-left: 0.75rem;
       padding-right: 0.75rem;
-    }
-
-    .px-4 {
-      padding-left: 1rem;
-      padding-right: 1rem;
     }
 
     .px-6 {
@@ -1218,11 +1007,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     .px-8 {
       padding-left: 2rem;
       padding-right: 2rem;
-    }
-
-    .py-1 {
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
     }
 
     .py-10 {
@@ -1240,11 +1024,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       padding-bottom: 1rem;
     }
 
-    .py-6 {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-    }
-
     .pb-4 {
       padding-bottom: 1rem;
     }
@@ -1255,10 +1034,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
     .pr-5 {
       padding-right: 1.25rem;
-    }
-
-    .pt-0 {
-      padding-top: 0px;
     }
 
     .pt-10 {
@@ -1281,10 +1056,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       text-align: center;
     }
 
-    .text-justify {
-      text-align: justify;
-    }
-
     .text-2xl {
       font-size: 1.5rem;
       line-height: 2rem;
@@ -1293,16 +1064,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     .text-3xl {
       font-size: 1.875rem;
       line-height: 2.25rem;
-    }
-
-    .text-4xl {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
-
-    .text-5xl {
-      font-size: 3rem;
-      line-height: 1;
     }
 
     .text-base {
@@ -1342,14 +1103,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       font-weight: 500;
     }
 
-    .font-semibold {
-      font-weight: 600;
-    }
-
-    .uppercase {
-      text-transform: uppercase;
-    }
-
     .leading-7 {
       line-height: 1.75rem;
     }
@@ -1362,11 +1115,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       color: #2e2c2cee;
     }
 
-    .text-\[\#F7B4C0\] {
-      --tw-text-opacity: 1;
-      color: rgb(247 180 192 / var(--tw-text-opacity));
-    }
-
     .text-black {
       --tw-text-opacity: 1;
       color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1377,29 +1125,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       color: rgb(255 255 255 / var(--tw-text-opacity));
     }
 
-    .underline {
-      text-decoration-line: underline;
-    }
-
-    .outline {
-      outline-style: solid;
-    }
-
-    .filter {
-      filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-    }
-
     .transition {
       transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
       transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
       transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 150ms;
-    }
-
-    .hover\:border-\[\#F7B4C0\]:hover {
-      --tw-border-opacity: 1;
-      border-color: rgb(247 180 192 / var(--tw-border-opacity));
     }
 
     .hover\:bg-\[\#f7b4c0cb\]:hover {
@@ -1436,10 +1167,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         margin-top: 4rem;
       }
 
-      .md\:inline-block {
-        display: inline-block;
-      }
-
       .md\:flex {
         display: flex;
       }
@@ -1448,16 +1175,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         display: grid;
       }
 
-      .md\:h-16 {
-        height: 4rem;
-      }
-
       .md\:h-\[30vh\] {
         height: 30vh;
-      }
-
-      .md\:w-16 {
-        width: 4rem;
       }
 
       .md\:w-full {
@@ -1468,18 +1187,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         gap: 2.5rem;
       }
 
-      .md\:gap-4 {
-        gap: 1rem;
-      }
-
       .md\:px-10 {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
-      }
-
-      .md\:px-6 {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
       }
 
       .md\:text-base {
@@ -1530,24 +1240,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         display: grid;
       }
 
-      .lg\:h-20 {
-        height: 5rem;
-      }
-
-      .lg\:h-\[200px\] {
-        height: 200px;
-      }
-
       .lg\:h-\[20vh\] {
         height: 20vh;
-      }
-
-      .lg\:h-\[250px\] {
-        height: 250px;
-      }
-
-      .lg\:w-20 {
-        width: 5rem;
       }
 
       .lg\:w-3\/5 {
@@ -1556,10 +1250,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
       .lg\:grid-cols-12 {
         grid-template-columns: repeat(12, minmax(0, 1fr));
-      }
-
-      .lg\:grid-cols-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .lg\:gap-10 {
@@ -1586,10 +1276,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
       .lg\:pt-0 {
         padding-top: 0px;
-      }
-
-      .lg\:pt-10 {
-        padding-top: 2.5rem;
       }
 
       .lg\:text-left {
@@ -1647,24 +1333,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         height: 80vh;
       }
 
-      .xl\:h-full {
-        height: 100%;
-      }
-
       .xl\:w-11\/12 {
         width: 91.666667%;
       }
 
-      .xl\:w-\[10px\] {
-        width: 10px;
-      }
-
       .xl\:w-\[90\%\] {
         width: 90%;
-      }
-
-      .xl\:grid-cols-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .xl\:gap-10 {
@@ -2056,7 +1730,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   <!-- ===================COMBAT start============== -->
 
   <!-- ===========color-safe start========== -->
-  <section class=" mt-5 md:mt-16 xl:mt-20 bg-[#FEF7F7]">
+  <section class=" mt-5 md:mt-16 xl:mt-20">
     <div class="mt-10 lg:my-10">
       <img src="https://bhavehair.com.au/cdn/shop/files/Group_9916_1_2000x.png?v=1705634390" alt="">
     </div>
@@ -2087,7 +1761,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 <div class=" col-span-6">
                   <h2 class="text-xl  lg:text-2xl xl:text-3xl text-black leading-none ">
 
-                    <span class=" font-bold">ΕΠΑΓΓΕΛΜΑΤΙΕΣ ΚΟΜΜΩΤΕΣ </span>ΕΙΣΤΕ ΕΤΟΙΜΟΙ ΝΑ ΑΝΑΒΑΘΜΊΣΕΤΕ ΤΟ ΟΠΛΟΣΤΑΣΙΟ
+                    <span class=" font-bold">ΕΠΑΓΓΕΛΜΑΤΙΕΣ ΚΟΜΜΩΤΕΣ</span>ΕΙΣΤΕ ΕΤΟΙΜΟΙ ΝΑ ΑΝΑΒΑΘΜΊΣΕΤΕ ΤΟ ΟΠΛΟΣΤΑΣΙΟ
                     ΣΑΣ;
                   </h2>
 
@@ -2120,8 +1794,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
   <!-- ================FAQ START=========== -->
   <section class="mt-5 md:mt-16 xl:mt-20">
-    <div class=" container mx-auto">
 
+    <div class="container mx-auto">
       <div class=" md:flex justify-center">
         <div class="">
           <h2 class=" text-2xl  lg:text-3xl xl:text-4xl text-black leading-none  text-center  mb-2 lg:mb-0 mr-2">
@@ -2136,300 +1810,224 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       </div>
 
       <div class="lg:w-3/5 mx-auto pl-3 pr-5 xl:px-0">
-        <div class=" mt-10">
-          <div class="collapsible-tabs__wrapper">
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn text-sm lg:text-base font-bold w-11/12">
-                ΠΟΙΟ ΕΙΝΑΙ ΤΟ ΚΥΡΙΟ ΣΥΣΤΑΤΙΚΟ ΠΟΥ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ ΣΤΗ BHAVE™ RESCUE
-
-              </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
-                  <p class=" text-sm lg:text-base  mb-4">
-                    Εισέλθετε στον κόσμο της Βιοενεργής Κερατίνης, όπου η επιστήμη και η φύση συνδυάζονται για να σας
-                    προσφέρουν την απόλυτη
-                    λύση για νεανικά, ζωντανά μαλλιά. Δεν είναι απλά ένα συστατικό· είναι μια δύναμη ισχύος και
-                    προστασίας, φυσικά
-                    απαραίτητη για τα μαλλιά, το δέρμα και τα νύχια.
-
-                  </p>
-
-                  <p class=" text-base mb-4">
-                    Η Βιοενεργή Κερατίνη είναι μια μορφή κερατίνης που είναι λειτουργική και ενεργή, πράγμα που σημαίνει
-                    ότι μπορεί να
-                    αλληλεπιδράσει ευεργετικά με ζωντανά κύτταρα, ιδιαίτερα αυτά στα ανθρώπινα μαλλιά και στο δέρμα. Σε
-                    αντίθεση με την απλή
-                    κερατίνη, που μπορεί να έχει αλλοιωθεί ή να είναι λιγότερο ενεργή λόγω σκληρών των διαδικασιών
-                    εξαγωγής της, η Βιοενεργή
-                    Κερατίνη εξάγεται με τρόπο που διατηρείται η φυσική της δομή και οι ενεργές ιδιότητες.
-
-                  </p>
-
-
-                  <p class=" text-base mb-4">
-                    Αυτός ο τύπος κερατίνης μοιάζει στενά με την κερατίνη που βρίσκεται στα ανθρώπινα μαλλιά,
-                    καθιστώντας τον εξαιρετικά
-                    αποτελεσματικό για την αναζωογόνηση των μαλλιών. Όταν εφαρμόζεται, μπορεί να διεισδύσει στα μαλλιά,
-                    δεσμευόμενος με τη
-                    φυσική κερατίνη που υπάρχει. Αυτό έχει ως αποτέλεσμα διάφορα ωφέλη, όπως βελτιωμένη δύναμη μαλλιών,
-                    αυξημένη
-                    ελαστικότητα και ενισχυμένη κατακράτηση υγρασίας, συμβάλλοντας σε πιο υγιή, πιο ανθεκτικά μαλλιά.
-
-                  </p>
-
-
-                  <p class=" text-base mb-4">
-                    Εδώ είναι η πραγματική ανακάλυψη: η κερατίνη μας είναι ένας επαναστατικός παράγοντας στην
-                    αντιγήρανση των μαλλιών.
-                    Πηγαίνει πέρα από την απλή επισκευή φθορών – αναζωογονεί τα μαλλιά σας σε κυτταρικό επίπεδο,
-                    διεγείροντας την παραγωγή
-                    κολλαγόνου. Υποστηριζόμενη από επιστημονική έρευνα, αυτή η διαδικασία είναι απαραίτητη για τη
-                    διατήρηση της νεανικής
-                    ουσίας των μαλλιών σας. Το κολλαγόνο, το μυστικό για την ελαστικότητα και τη ζωντάνια των μαλλιών,
-                    παίζει κρίσιμο ρόλο
-                    στην επίτευξη αυτής της διαχρονικής εμφάνισης.
-
-                  </p>
-                </div>
-              </div>
+        <div class="mt-10">
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΠΟΙΟ ΕΙΝΑΙ ΤΟ ΚΥΡΙΟ ΣΥΣΤΑΤΙΚΟ ΠΟΥ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ ΣΤΗ BHAVE™
+                RESCUE</p>
             </div>
-
-
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn text-sm font-bold lg:text-base w-11/12">
-                ΤΙ ΜΠΟΡΩ ΝΑ ΠΕΡΙΜΕΝΩ ΑΠΟ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΣΤΟ ΚΟΜΜΩΤΗΡΙΟ ΓΙΑ ΑΝΑΔΟΜΗΣΗ ΚΑΙ ΑΝΑΖΩΟΓΟΝΗΣΗ ΜΑΛΛΙΩΝ;
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Εισέλθετε στον κόσμο της Βιοενεργής Κερατίνης, όπου η επιστήμη και η φύση συνδυάζονται για να σας
+                προσφέρουν την απόλυτη
+                λύση για νεανικά, ζωντανά μαλλιά. Δεν είναι απλά ένα συστατικό· είναι μια δύναμη ισχύος και
+                προστασίας, φυσικά
+                απαραίτητη για τα μαλλιά, το δέρμα και τα νύχια.
 
               </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
+
+              <p class=" text-base mb-4">
+                Η Βιοενεργή Κερατίνη είναι μια μορφή κερατίνης που είναι λειτουργική και ενεργή, πράγμα που σημαίνει
+                ότι μπορεί να
+                αλληλεπιδράσει ευεργετικά με ζωντανά κύτταρα, ιδιαίτερα αυτά στα ανθρώπινα μαλλιά και στο δέρμα. Σε
+                αντίθεση με την απλή
+                κερατίνη, που μπορεί να έχει αλλοιωθεί ή να είναι λιγότερο ενεργή λόγω σκληρών των διαδικασιών
+                εξαγωγής της, η Βιοενεργή
+                Κερατίνη εξάγεται με τρόπο που διατηρείται η φυσική της δομή και οι ενεργές ιδιότητες.
+
+              </p>
 
 
-                  <p class=" text-base mb-4">
-                    Η Rescue Therapy ως Αναζωογονητική Εντατική Θεραπεία Επανόρθωσης: Ο κομμωτής σας θα εφαρμόσει τη
-                    Rescue Therapy με ένα
-                    πινέλο βαφής, εστιάζοντας στις πιο ταλαιπωρημένες περιοχές, και στη συνέχεια θα την απλώσει απαλά σε
-                    όλο το μήκος των
-                    μαλλιών σας. Μετά από μια 20λεπτη θεραπεία με θερμότητα, τα μαλλιά σας ξεπλένονται, περιποιούνται
-                    και διαμορφώνονται. Το
-                    αποτέλεσμα; Πιο απαλά, πιο λεία και αναζωογονημένα λαμπερά μαλλιά που όχι μόνο φαίνονται νεανικά
-                    αλλά και το
-                    αισθάνονται.
+              <p class=" text-base mb-4">
+                Αυτός ο τύπος κερατίνης μοιάζει στενά με την κερατίνη που βρίσκεται στα ανθρώπινα μαλλιά,
+                καθιστώντας τον εξαιρετικά
+                αποτελεσματικό για την αναζωογόνηση των μαλλιών. Όταν εφαρμόζεται, μπορεί να διεισδύσει στα μαλλιά,
+                δεσμευόμενος με τη
+                φυσική κερατίνη που υπάρχει. Αυτό έχει ως αποτέλεσμα διάφορα ωφέλη, όπως βελτιωμένη δύναμη μαλλιών,
+                αυξημένη
+                ελαστικότητα και ενισχυμένη κατακράτηση υγρασίας, συμβάλλοντας σε πιο υγιή, πιο ανθεκτικά μαλλιά.
 
-                  </p>
+              </p>
 
 
-                </div>
-              </div>
+              <p class=" text-base mb-4">
+                Εδώ είναι η πραγματική ανακάλυψη: η κερατίνη μας είναι ένας επαναστατικός παράγοντας στην
+                αντιγήρανση των μαλλιών.
+                Πηγαίνει πέρα από την απλή επισκευή φθορών – αναζωογονεί τα μαλλιά σας σε κυτταρικό επίπεδο,
+                διεγείροντας την παραγωγή
+                κολλαγόνου. Υποστηριζόμενη από επιστημονική έρευνα, αυτή η διαδικασία είναι απαραίτητη για τη
+                διατήρηση της νεανικής
+                ουσίας των μαλλιών σας. Το κολλαγόνο, το μυστικό για την ελαστικότητα και τη ζωντάνια των μαλλιών,
+                παίζει κρίσιμο ρόλο
+                στην επίτευξη αυτής της διαχρονικής εμφάνισης.
+
+              </p>
             </div>
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn text-sm font-bold lg:text-base w-11/12">
-                ΘΑ ΙΣΙΩΣΕΙ ΤΑ ΜΑΛΛΙΑ ΜΟΥ;
-
-              </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
-
-
-                  <p class=" text-base mb-4">
-                    Όχι ακριβώς! Η Rescue Therapy δεν είναι μια θεραπεία ισιώματος, επομένως δε θα ισιώσει άμεσα τα
-                    μαλλιά σας. Ωστόσο, για
-                    όσους αναζητούν μια πιο λεία εμφάνιση, η υπογραφή μας, η θεραπεία λείανσης κερατίνης Smoothe XT
-                    είναι η λύση. Ενώ η ίδια
-                    η Rescue Therapy εστιάζει στην αναζωογόνηση της υγείας των μαλλιών σας, οδηγεί φυσικά σε πιο λείες
-                    τούφες. Τα πιο υγιή
-                    μαλλιά τείνουν να έχουν λιγότερο φριζάρισμα, ειδικά αν το φριζάρισμά σας είναι αποτέλεσμα θερμικής,
-                    χημικής ή
-                    περιβαλλοντικής φθοράς. Έτσι, ενώ δε θα ισιώσει τα μαλλιά, σίγουρα θα βοηθήσει στο να τιθασεύσετε
-                    και να λειάνετε τις
-                    τούφες σας!
-
-                  </p>
-
-
-                </div>
-              </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΤΙ ΜΠΟΡΩ ΝΑ ΠΕΡΙΜΕΝΩ ΑΠΟ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΣΤΟ ΚΟΜΜΩΤΗΡΙΟ ΓΙΑ
+                ΑΝΑΔΟΜΗΣΗ ΚΑΙ ΑΝΑΖΩΟΓΟΝΗΣΗ ΜΑΛΛΙΩΝ;</p>
             </div>
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn font-bold text-sm lg:text-base w-11/12">
-                ΠΟΣΟ ΣΥΧΝΑ ΠΡΕΠΕΙ ΝΑ ΚΑΝΩ ΤΗ ΘΕΡΑΠΕΙΑ;
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Η Rescue Therapy ως Αναζωογονητική Εντατική Θεραπεία Επανόρθωσης: Ο κομμωτής σας θα εφαρμόσει τη Rescue
+                Therapy με ένα
+                πινέλο βαφής, εστιάζοντας στις πιο ταλαιπωρημένες περιοχές, και στη συνέχεια θα την απλώσει απαλά σε όλο
+                το μήκος των
+                μαλλιών σας. Μετά από μια 20λεπτη θεραπεία με θερμότητα, τα μαλλιά σας ξεπλένονται, περιποιούνται και
+                διαμορφώνονται. Το
+                αποτέλεσμα; Πιο απαλά, πιο λεία και αναζωογονημένα λαμπερά μαλλιά που όχι μόνο φαίνονται νεανικά αλλά
+                και το
+                αισθάνονται.
 
               </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
 
-
-                  <p class=" text-base mb-4">
-                    Για σοβαρά ταλαιπωρημένα/γηρασμένα μαλλιά, η Rescue Therapy συνιστάται ανά δεκαπενθήμερο ή μηνιαία.
-                    Ακόμη και μετά από
-                    μία θεραπεία, τα αναζωογονητικά αποτελέσματα είναι εμφανή. Ο στυλίστας σας θα σας παρέχει
-                    εξατομικευμένες συμβουλές.
-
-                  </p>
-
-
-                </div>
-              </div>
             </div>
-
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn font-bold text-sm lg:text-base w-11/12">
-                ΓΙΑΤΙ ΕΙΝΑΙ Η RESCUE THERAPY ΑΠΑΡΑΙΤΗΤΗ ΚΑΤΑ ΤΟ ΞΑΝΟΙΓΜΑ/ΝΤΕΚΑΠΑΡΙΣΜΑ ΤΩΝ ΜΑΛΛΙΩΝ;
-
-              </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
-
-
-                  <p class=" text-base mb-4">
-                    Τα ξανοίγματα μπορούν να γηράσουν τα μαλλιά σας πρόωρα. Η Rescue Therapy αναγεννά τη φυσική κερατίνη
-                    των μαλλιών σας,
-                    προλαμβάνοντας και επιδιορθώνοντας φθορές που σχετίζονται με την ηλικία από μέσα προς τα έξω.
-                    Αποκαθιστά τη φυσική
-                    ζωντάνια των μαλλιών σας, καθιστώντας την απαραίτητη σε οποιαδήποτε θεραπεία χρώματος για
-                    αποτελέσματα που αντιστέκονται
-                    στο χρόνο.
-
-                  </p>
-
-
-                </div>
-              </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΘΑ ΙΣΙΩΣΕΙ ΤΑ ΜΑΛΛΙΑ ΜΟΥ;</p>
             </div>
-
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn font-bold text-sm lg:text-base w-11/12">
-                ΠΩΣ ΜΠΟΡΩ ΝΑ ΠΑΡΑΤΕΙΝΩ ΤΑ ΑΠΟΤΕΛΕΣΜΑΤΑ ΣΤΟ ΣΠΙΤΙ;
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Όχι ακριβώς! Η Rescue Therapy δεν είναι μια θεραπεία ισιώματος, επομένως δε θα ισιώσει άμεσα τα μαλλιά
+                σας. Ωστόσο, για
+                όσους αναζητούν μια πιο λεία εμφάνιση, η υπογραφή μας, η θεραπεία λείανσης κερατίνης Smoothe XT είναι η
+                λύση. Ενώ η ίδια
+                η Rescue Therapy εστιάζει στην αναζωογόνηση της υγείας των μαλλιών σας, οδηγεί φυσικά σε πιο λείες
+                τούφες. Τα πιο υγιή
+                μαλλιά τείνουν να έχουν λιγότερο φριζάρισμα, ειδικά αν το φριζάρισμά σας είναι αποτέλεσμα θερμικής,
+                χημικής ή
+                περιβαλλοντικής φθοράς. Έτσι, ενώ δε θα ισιώσει τα μαλλιά, σίγουρα θα βοηθήσει στο να τιθασεύσετε και να
+                λειάνετε τις
+                τούφες σας!
 
               </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
 
-
-                  <p class=" text-base mb-4">
-                    Για να διασφαλίσετε ότι τα μαλλιά σας παραμένουν τόσο δυνατά, θρεμμένα και προστατευμένα όσο την
-                    ημέρα της υπηρεσίας στο
-                    κομμωτήριο, η φροντίδα στο σπίτι είναι το κλειδί. Επεκτείνετε τα ωφέλη της υπηρεσίας στο κομμωτήριο
-                    με το βραβευμένα μας
-                    Rescue Shampoo και Rescue Conditioner. Αυτό το δυναμικό δίδυμο, εμπλουτισμένο με Bιοενεργή Kερατίνη,
-                    κάνει θαύματα στο
-                    σπίτι, αποκαθιστώντας την ελαστικότητα, αναδομώντας την ακεραιότητα των μαλλιών σας και προσφέροντας
-                    μια προστατευτική
-                    ασπίδα ενάντια στη μελλοντική φθορά – όλα αυτά ενώ προσθέτει εκείνη την αξιοζήλευτη λάμψη. Επιπλέον,
-                    τα περισσότερα από
-                    τα ενυδατικά προϊόντα και θεραπείες μας περιέχουν επίσης Βιοενεργή Κερατίνη, έστω και σε μικρότερα
-                    ποσοστά, για να
-                    υποστηρίζουν και να ενισχύουν συνεχώς την υγεία και την εμφάνιση των μαλλιών σας.
-
-                  </p>
-
-
-                </div>
-              </div>
             </div>
-
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn font-bold text-sm lg:text-base w-11/12">
-                ΠΩΣ ΔΙΑΦΕΡΕΙ Η RESCUE THERAPY ΑΠΟ ΑΛΛΑ BOND-BUILDERS;
-
-              </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
-
-
-                  <p class=" text-base mb-4">
-                    Η Rescue Therapy ξεχωρίζει ως μια μεταμορφωτική λύση περιποίησης μαλλιών, όχι μόνο για την
-                    αποτελεσματικότητά της αλλά
-                    και για τη μοναδική της σύνθεση. Το κύριο συστατικό στη Rescue Therapy είναι ένα 100% φυσικό,
-                    βιώσιμο, ενεργό προϊόν που
-                    μοιάζει στενά με την κερατίνη που βρίσκεται στα ανθρώπινα μαλλιά. Δεν είναι ένα συνθετικό
-                    υποκατάστατο· είναι μια
-                    πραγματική, φυσική λύση που μπορεί να χρησιμοποιηθεί τόσο συχνά όσο χρειάζεται χωρίς καμία αρνητική
-                    επίδραση.
-
-                  </p>
-
-                  <p class=" text-base mb-4">
-                    Η μοριακή δομή αυτής της φυσικής κερατίνης είναι ελαφριά, διασφαλίζοντας ότι δεν βαραίνει τα μαλλιά
-                    σας, ανεξάρτητα από
-                    τον τύπο τους. Είναι ιδιαίτερα ευεργετική για λεπτά μαλλιά, όπου τα βαριά προϊόντα μπορούν να
-                    οδηγήσουν σε έλλειψη όγκου
-                    και ζωντάνιας. Η Rescue Therapy είναι κάτι περισσότερο από μια προσωρινή λύση· είναι ένα σύστημα
-                    βαθιάς επισκευής που
-                    διεισδύει στον άξονα της τρίχας, αντιστρέφοντας αποτελεσματικά τη διαδικασία γήρανσης των μαλλιών
-                    σας.
-
-                  </p>
-
-                  <p class=" text-base mb-4">
-                    Σε αντίθεση με άλλα bond-builders που μπορεί να προσφέρουν προσωρινή δύναμη ή επιφανειακή επίστρωση,
-                    η Rescue Therapy
-                    αναζωογονεί από μέσα. Αναπληρώνει και αποκαθιστά, επαναφέροντας τη νεανική ζωντάνια, ελαστικότητα
-                    και ανθεκτικότητα των
-                    μαλλιών σας. Αυτό την καθιστά ένα μοναδικό, ξεχωριστό προϊόν σε μια αγορά γεμάτη με συνθετικές και
-                    προσωρινές λύσεις.
-
-                  </p>
-
-
-                </div>
-              </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΠΟΣΟ ΣΥΧΝΑ ΠΡΕΠΕΙ ΝΑ ΚΑΝΩ ΤΗ ΘΕΡΑΠΕΙΑ;</p>
             </div>
-
-
-            <div class="collapsibles-wrapper">
-
-              <p type="button" class="collapsible-trigger-btn font-bold text-sm lg:text-base w-11/12">
-                ΑΠΟ ΠΟΥ ΠΡΟΕΡΧΕΤΑΙ Η ΒΙΟΕΝΕΡΓΗ ΚΕΡΑΤΙΝΗ;
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Για σοβαρά ταλαιπωρημένα/γηρασμένα μαλλιά, η Rescue Therapy συνιστάται ανά δεκαπενθήμερο ή μηνιαία.
+                Ακόμη και μετά από
+                μία θεραπεία, τα αναζωογονητικά αποτελέσματα είναι εμφανή. Ο στυλίστας σας θα σας παρέχει
+                εξατομικευμένες συμβουλές.
 
               </p>
-              <div class="collapsible-content mt-3">
-                <div class="collapsible-content__inner">
 
+            </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΓΙΑΤΙ ΕΙΝΑΙ Η RESCUE THERAPY ΑΠΑΡΑΙΤΗΤΗ ΚΑΤΑ ΤΟ
+                ΞΑΝΟΙΓΜΑ/ΝΤΕΚΑΠΑΡΙΣΜΑ ΤΩΝ ΜΑΛΛΙΩΝ;</p>
+            </div>
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Τα ξανοίγματα μπορούν να γηράσουν τα μαλλιά σας πρόωρα. Η Rescue Therapy αναγεννά τη φυσική κερατίνη των
+                μαλλιών σας,
+                προλαμβάνοντας και επιδιορθώνοντας φθορές που σχετίζονται με την ηλικία από μέσα προς τα έξω. Αποκαθιστά
+                τη φυσική
+                ζωντάνια των μαλλιών σας, καθιστώντας την απαραίτητη σε οποιαδήποτε θεραπεία χρώματος για αποτελέσματα
+                που αντιστέκονται
+                στο χρόνο.
+              </p>
 
-                  <p class=" text-base mb-4">
-                    Το μαλλί, μια 100% φυσική και πλήρως ανανεώσιμη ίνα, παράγεται όλο το χρόνο από διάφορα ζώα,
-                    συμπεριλαμβανομένων των
-                    προβάτων. Το μαλλί μας προέρχεται από πρόβατα που βόσκουν στην παρθένα ύπαιθρο της Νέας Ζηλανδίας.
-                    Φυλές όπως η Romney
-                    και η Perendale, που δεν ρίχνουν φυσικά το μαλλί τους, είναι κοινές. Το κούρεμα αυτών των προβάτων
-                    ετησίως, ειδικά πριν
-                    από τους ζεστούς καλοκαιρινούς μήνες, είναι ζωτικής σημασίας για την άνεσή τους, αποτρέποντας την
-                    ταλαιπωρία από τη
-                    μεταφορά πλήρους μαλλιού στη ζέστη.
+            </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΠΩΣ ΜΠΟΡΩ ΝΑ ΠΑΡΑΤΕΙΝΩ ΤΑ ΑΠΟΤΕΛΕΣΜΑΤΑ ΣΤΟ ΣΠΙΤΙ;;</p>
+            </div>
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Για να διασφαλίσετε ότι τα μαλλιά σας παραμένουν τόσο δυνατά, θρεμμένα και προστατευμένα όσο την ημέρα
+                της υπηρεσίας στο
+                κομμωτήριο, η φροντίδα στο σπίτι είναι το κλειδί. Επεκτείνετε τα ωφέλη της υπηρεσίας στο κομμωτήριο με
+                το βραβευμένα μας
+                Rescue Shampoo και Rescue Conditioner. Αυτό το δυναμικό δίδυμο, εμπλουτισμένο με Bιοενεργή Kερατίνη,
+                κάνει θαύματα στο
+                σπίτι, αποκαθιστώντας την ελαστικότητα, αναδομώντας την ακεραιότητα των μαλλιών σας και προσφέροντας μια
+                προστατευτική
+                ασπίδα ενάντια στη μελλοντική φθορά – όλα αυτά ενώ προσθέτει εκείνη την αξιοζήλευτη λάμψη. Επιπλέον, τα
+                περισσότερα από
+                τα ενυδατικά προϊόντα και θεραπείες μας περιέχουν επίσης Βιοενεργή Κερατίνη, έστω και σε μικρότερα
+                ποσοστά, για να
+                υποστηρίζουν και να ενισχύουν συνεχώς την υγεία και την εμφάνιση των μαλλιών σας.
+              </p>
 
-                  </p>
+            </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΠΩΣ ΔΙΑΦΕΡΕΙ Η RESCUE THERAPY ΑΠΟ ΑΛΛΑ BOND-BUILDERS;</p>
+            </div>
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Η Rescue Therapy ξεχωρίζει ως μια μεταμορφωτική λύση περιποίησης μαλλιών, όχι μόνο για την
+                αποτελεσματικότητά της αλλά
+                και για τη μοναδική της σύνθεση. Το κύριο συστατικό στη Rescue Therapy είναι ένα 100% φυσικό, βιώσιμο,
+                ενεργό προϊόν που
+                μοιάζει στενά με την κερατίνη που βρίσκεται στα ανθρώπινα μαλλιά. Δεν είναι ένα συνθετικό υποκατάστατο·
+                είναι μια
+                πραγματική, φυσική λύση που μπορεί να χρησιμοποιηθεί τόσο συχνά όσο χρειάζεται χωρίς καμία αρνητική
+                επίδραση.
+              <p class=" text-sm lg:text-base  mb-4">
+                Η μοριακή δομή αυτής της φυσικής κερατίνης είναι ελαφριά, διασφαλίζοντας ότι δεν βαραίνει τα μαλλιά σας,
+                ανεξάρτητα από
+                τον τύπο τους. Είναι ιδιαίτερα ευεργετική για λεπτά μαλλιά, όπου τα βαριά προϊόντα μπορούν να οδηγήσουν
+                σε έλλειψη όγκου
+                και ζωντάνιας. Η Rescue Therapy είναι κάτι περισσότερο από μια προσωρινή λύση· είναι ένα σύστημα βαθιάς
+                επισκευής που
+                διεισδύει στον άξονα της τρίχας, αντιστρέφοντας αποτελεσματικά τη διαδικασία γήρανσης των μαλλιών σας.
+              </p>
+              <p class=" text-sm lg:text-base  mb-4">
+                Σε αντίθεση με άλλα bond-builders που μπορεί να προσφέρουν προσωρινή δύναμη ή επιφανειακή επίστρωση, η
+                Rescue Therapy
+                αναζωογονεί από μέσα. Αναπληρώνει και αποκαθιστά, επαναφέροντας τη νεανική ζωντάνια, ελαστικότητα και
+                ανθεκτικότητα των
+                μαλλιών σας. Αυτό την καθιστά ένα μοναδικό, ξεχωριστό προϊόν σε μια αγορά γεμάτη με συνθετικές και
+                προσωρινές λύσεις.
+              </p>
 
-                  <p class=" text-base mb-4">
-                    Η διαδικασία συγκομιδής του μαλλιού μοιάζει με κούρεμα, χρησιμοποιώντας ηλεκτρονικές κουρευτικές
-                    μηχανές με ανθρωπιστικό
-                    και ήπιο τρόπο. Μετά το κούρεμα, τα πρόβατα επιστρέφουν στα βοσκοτόπια τους για να βοσκήσουν και να
-                    μεγαλώσουν τα μικρά
-                    τους. Σε κανένα σημείο της διαδικασίας συγκομιδής του μαλλιού δεν βλάπτονται τα ζώα, εξασφαλίζοντας
-                    μια ηθική και
-                    βιώσιμη πηγή για τη Βιοενεργή Κερατίνη.
+            </div>
+          </div>
+          <div class="accordion-wrapper border-b border-black">
+            <div class="acc-head card p-3 rounded-0">
+              <p class="text-sm lg:text-base font-bold">ΑΠΟ ΠΟΥ ΠΡΟΕΡΧΕΤΑΙ Η ΒΙΟΕΝΕΡΓΗ ΚΕΡΑΤΙΝΗ;</p>
+            </div>
+            <div class="acc-body rounded-0">
+              <p class=" text-sm lg:text-base  mb-4">
+                Το μαλλί, μια 100% φυσική και πλήρως ανανεώσιμη ίνα, παράγεται όλο το χρόνο από διάφορα ζώα,
+                συμπεριλαμβανομένων των
+                προβάτων. Το μαλλί μας προέρχεται από πρόβατα που βόσκουν στην παρθένα ύπαιθρο της Νέας Ζηλανδίας. Φυλές
+                όπως η Romney
+                και η Perendale, που δεν ρίχνουν φυσικά το μαλλί τους, είναι κοινές. Το κούρεμα αυτών των προβάτων
+                ετησίως, ειδικά πριν
+                από τους ζεστούς καλοκαιρινούς μήνες, είναι ζωτικής σημασίας για την άνεσή τους, αποτρέποντας την
+                ταλαιπωρία από τη
+                μεταφορά πλήρους μαλλιού στη ζέστη.
 
-                  </p>
+              </p>
+              <p class=" text-sm lg:text-base  mb-4">
+                Η διαδικασία συγκομιδής του μαλλιού μοιάζει με κούρεμα, χρησιμοποιώντας ηλεκτρονικές κουρευτικές μηχανές
+                με ανθρωπιστικό
+                και ήπιο τρόπο. Μετά το κούρεμα, τα πρόβατα επιστρέφουν στα βοσκοτόπια τους για να βοσκήσουν και να
+                μεγαλώσουν τα μικρά
+                τους. Σε κανένα σημείο της διαδικασίας συγκομιδής του μαλλιού δεν βλάπτονται τα ζώα, εξασφαλίζοντας μια
+                ηθική και
+                βιώσιμη πηγή για τη Βιοενεργή Κερατίνη.
 
-                  <p class=" text-base mb-4">
-                    Η Βιοενεργή Κερατίνη είναι εντελώς φυσική, βιώσιμη και ανανεώσιμη.
-                  </p>
+              </p>
+              <p class=" text-sm lg:text-base  mb-4">
+                Η Βιοενεργή Κερατίνη είναι εντελώς φυσική, βιώσιμη και ανανεώσιμη.
+              </p>
 
-
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -2437,212 +2035,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     </div>
   </section>
   <!-- ================FAQ END=========== -->
-  <!-- ==============BOUGHT START============ 
-  <section class="my-16">
-    <div class=" container mx-auto">
-      <div class="xl:w-11/12 mx-auto px-6 md:px-10 xl:px-0">
-        <div class=" md:flex justify-center">
-          <div class="">
-            <h2
-              class="text-2xl  lg:text-3xl xl:text-4xl text-black leading-none font-bold text-center  mb-2 lg:mb-0 mr-2">
-              CUSTOMERS ALSO </h2>
-          </div>
-          <div class="">
-            <h2
-              class="text-2xl  lg:text-3xl xl:text-4xl text-black leading-none  font-extrabold text-center  mb-2 lg:mb-0">
-              BOUGHT</h2>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-4 lg:gap-10 mt-16">
-          <div class=" px-3 py-4 productCard   border  border-transparent rounded-lg hover:border-[#F7B4C0]">
-            <div class="w-full productImg">
-              <div class="productImg1">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p1.jpg"
-                    alt=""></a>
-              </div>
-
-              <div class="productImg2">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p2.jpg"
-                    alt=""></a>
-              </div>
-
-              <div class="approveIcon w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full">
-                <img
-                  src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/AWARD-WINNERpng.png"
-                  alt="">
-              </div>
-            </div>
-            <div class=" mt-3">
-              <div class=" flex items-center  justify-center gap-2">
-                <div class="">
-                  <ul class=" flex gap-1">
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                  </ul>
-                </div>
-                <div class="">
-                  <p class=" text-base underline">32<span class=" hidden md:inline-block">Reviews</span> </p>
-                </div>
-              </div>
-              <div class=" mt-2">
-                <h2 class=" text-lg font-medium text-center">bhave™</h2>
-                <h2 class="text-xl font-bold text-center">rescue conditioner</h2>
-                <h2 class="mt-3 text-xl font-semibold text-center"> <span>$</span>47.25</h2>
-                <a href="#">
-                  <div class=" mt-2 bg-[#F7B4C0] rounded-full text-center px-4 py-1 ">
-                    add to cart
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class=" px-3 py-4 productCard   border  border-transparent rounded-lg hover:border-[#F7B4C0]">
-            <div class="w-full productImg">
-              <div class="productImg1">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px] w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p1.jpg"
-                    alt=""></a>
-              </div>
-
-              <div class="productImg2">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p2.jpg"
-                    alt=""></a>
-              </div>
-
-            </div>
-            <div class=" mt-3">
-              <div class=" flex items-center  justify-center gap-2">
-                <div class="">
-                  <ul class=" flex gap-1">
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                  </ul>
-                </div>
-                <div class="">
-                  <p class=" text-base underline">32<span class=" hidden md:inline-block">Reviews</span> </p>
-                </div>
-              </div>
-              <div class=" mt-2">
-                <h2 class=" text-lg font-medium text-center">bhave™</h2>
-                <h2 class="text-xl font-bold text-center">rescue conditioner</h2>
-                <h2 class="mt-3 text-xl font-semibold text-center"> <span>$</span>47.25</h2>
-                <a href="#">
-                  <div class=" mt-2 bg-[#F7B4C0] rounded-full text-center px-4 py-1 ">
-                    add to cart
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class=" px-3 py-4 productCard   border  border-transparent rounded-lg hover:border-[#F7B4C0]">
-            <div class="w-full productImg">
-              <div class="productImg1">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p1.jpg"
-                    alt=""></a>
-              </div>
-
-              <div class="productImg2">
-                <a href="#"><img class="object-fit h-[100px]  lg:h-[200px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p2.jpg"
-                    alt=""></a>
-              </div>
-
-            </div>
-            <div class=" mt-3">
-              <div class=" flex items-center  justify-center gap-2">
-                <div class="">
-                  <ul class=" flex gap-1">
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                  </ul>
-                </div>
-                <div class="d-none md:d-flex">
-                  <p class=" text-base underline">32<span class=" hidden md:inline-block">Reviews</span> </p>
-                </div>
-              </div>
-              <div class=" mt-2">
-                <h2 class=" text-lg font-medium text-center">bhave™</h2>
-                <h2 class="text-xl font-bold text-center">rescue conditioner</h2>
-                <h2 class="mt-3 text-xl font-semibold text-center"> <span>$</span>47.25</h2>
-                <a href="#">
-                  <div class=" mt-2 bg-[#F7B4C0] rounded-full text-center px-4 py-1 ">
-                    add to cart
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class=" px-3 py-4 productCard   border  border-transparent rounded-lg hover:border-[#F7B4C0]">
-            <div class="w-full productImg">
-              <div class="productImg1">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p1.jpg"
-                    alt=""></a>
-              </div>
-
-              <div class="productImg2">
-                <a href="#"><img class="object-fit h-[100px] lg:h-[250px]  w-full"
-                    src="https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/p2.jpg"
-                    alt=""></a>
-              </div>
-
-            </div>
-            <div class=" mt-3">
-              <div class=" flex items-center  justify-center gap-2">
-                <div class="">
-                  <ul class=" flex gap-1">
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                    <li class=" text-base"><i class="fa-solid fa-star text-[#F7B4C0]"></i></li>
-                  </ul>
-                </div>
-                <div class="d-none md:d-flex">
-                  <p class=" text-base underline">32<span class=" hidden md:inline-block">Reviews</span> </p>
-                </div>
-              </div>
-              <div class=" mt-2">
-                <h2 class=" text-lg font-medium text-center">bhave™</h2>
-                <h2 class="text-xl font-bold text-center">rescue conditioner</h2>
-                <h2 class="mt-3 text-xl font-semibold text-center"> <span>$</span>47.25</h2>
-                <a href="#">
-                  <div class=" mt-2 bg-[#F7B4C0] rounded-full text-center px-4 py-1 ">
-                    add to cart
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-   ==============BOUGHT END============ -->
-
   <!-- ================quiz start============= -->
+
   <!-- ================ -->
-  <section class="bg-[#f8e8eaf8]">
+  <section class="">
     <div class=" quiz-back-mobile "
       style=" background-image: url('https://bhavehair.com.au/cdn/shop/files/BG-3-Mobile_800x.png?v=1703410583');">
       <div class="container mx-auto">
         <div class=" py-10">
-          <div class="md:grid grid-cols-12">
-            <div class=" col-span-7 lg:col-span-6 xl:col-span-4 px-3 xl:px-0">
+          <div class="">
+            <div class="">
               <h2 class=" text-2xl  lg:text-3xl xl:text-4xl text-center lg:text-left text-black">ΑΝΑΚΑΛΥΨΤΕ ΤΗΝ</h2>
               <h2 class="text-2xl  lg:text-3xl xl:text-4xl text-center lg:text-left text-black font-bold">
                 ΡΟΥΤΙΝΑ ΤΩΝ ΜΑΛΛΙΩΝ ΣΑΣ
@@ -2663,14 +2065,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     </div>
   </section>
   <!-- ================== -->
-
-  <section class="">
-    <div class=" quiz-back h-[40vh] mt-20 "
-      style=" background-image: url('https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/quize-back.jpg');">
+  <section class="quiz-back mt-20"
+    style=" background-image: url('https://raw.githubusercontent.com/NoobBiswajit/emailtempate/refs/heads/main/img/quize-back.jpg');">
+    <div class="  ">
       <div class="container mx-auto">
-        <div class=" py-10 h-[40vh]">
-          <div class="md:grid grid-cols-12 h-full">
-            <div class=" flex flex-col justify-center col-span-7 lg:col-span-6 xl:col-span-4 px-3 xl:px-0">
+        <div class=" py-10">
+          <div class="md:grid grid-cols-12">
+            <div class=" col-span-7 lg:col-span-6 xl:col-span-4 px-3 xl:px-0">
               <h2 class=" text-2xl  lg:text-3xl xl:text-4xl text-center lg:text-left text-black">ΑΝΑΚΑΛΥΨΤΕ ΤΗΝ</h2>
               <h2 class="text-2xl  lg:text-3xl xl:text-4xl text-center lg:text-left text-black font-bold">
                 ΡΟΥΤΙΝΑ ΤΩΝ ΜΑΛΛΙΩΝ ΣΑΣ
@@ -2690,10 +2091,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       </div>
     </div>
   </section>
+
   <!-- ================quiz end============= -->
 
 
   <!-- =========script======= -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
@@ -2707,30 +2111,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   </script>
   <!-- =========script======= -->
 
+
+
   <!-- ===========accordion========= -->
-  <script>
-    const collapsibleButtons = document.querySelectorAll(
-      ".collapsible-trigger-btn"
-    );
-
-    collapsibleButtons.forEach((collapsibleButton) => {
-      const collapsibleContentDataHeight =
-        collapsibleButton.nextElementSibling.offsetHeight;
-      collapsibleButton.nextElementSibling.style.height = 0;
-      collapsibleButton.addEventListener("click", (e) => {
-        if (
-          !e.currentTarget.parentElement.classList.contains("collapsible-tab__open")
-        ) {
-          e.currentTarget.parentElement.classList.toggle("collapsible-tab__open");
-          e.currentTarget.nextElementSibling.style.height = `${collapsibleContentDataHeight}px`;
-        } else {
-          e.currentTarget.parentElement.classList.remove("collapsible-tab__open");
-          e.currentTarget.nextElementSibling.style.height = 0;
-        }
-      });
-    });
-
-  </script>
+  <script>$(document).ready(function () {
+      $('.acc-head').click(function () {
+        $(this).next().slideToggle(500);
+        $(this).toggleClass('active');
+      })
+    })</script>
   <!-- ===========accordion========= -->
 </body>
 
