@@ -814,8 +814,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       grid-column: span 6 / span 6;
     }
 
-    .col-span-7 {
-      grid-column: span 7 / span 7;
+    .col-start-2 {
+      grid-column-start: 2;
     }
 
     .mx-auto {
@@ -1171,10 +1171,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         display: flex;
       }
 
-      .md\:grid {
-        display: grid;
-      }
-
       .md\:h-\[30vh\] {
         height: 30vh;
       }
@@ -1190,6 +1186,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       .md\:px-10 {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
+      }
+
+      .md\:px-5 {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
 
       .md\:text-base {
@@ -1264,6 +1265,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         gap: 1rem;
       }
 
+      .lg\:px-0 {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
       .lg\:px-16 {
         padding-left: 4rem;
         padding-right: 4rem;
@@ -1313,12 +1319,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         left: 50%;
       }
 
-      .xl\:col-span-4 {
-        grid-column: span 4 / span 4;
-      }
-
       .xl\:col-span-6 {
         grid-column: span 6 / span 6;
+      }
+
+      .xl\:col-start-1 {
+        grid-column-start: 1;
       }
 
       .xl\:mt-20 {
